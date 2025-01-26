@@ -1,0 +1,9 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "bulletInDaily":"BulletIn ദിവസേന",
+  "newsMadeSimple":"വാർത്ത ലളിതമാക്കി",
+  "failedToLoad":"ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
+}

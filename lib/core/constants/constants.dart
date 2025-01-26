@@ -1,0 +1,9 @@
+const String newsApiBaseUrl = "https://newsapi.org/v2";
+const String newsAPIKey = "3d528a6e05c24a27a58cfb0e9f83ebce";
+const String newsAPICountryQuery = "in";
+const String newsAPICategoryQuery = "general";
+const String emptyString = "";
+const String mockBaseUrl = "https://run.mocky.io/v3";
+const String textFontName = "Roboto";
+const String localeEnglish = "en";
+const String localeMalayalam = "ml";

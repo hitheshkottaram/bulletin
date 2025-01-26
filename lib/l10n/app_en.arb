@@ -1,0 +1,9 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "bulletInDaily":"BulletIn Daily",
+  "newsMadeSimple":"News made simple",
+  "failedToLoad":"Failed to load"
+}
