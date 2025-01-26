@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget {
                 height: 250,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: iconColor.withOpacity(0.5),
+                  color: iconColor.withValues(alpha: 0.5),
                 ),
               ),
             ),
