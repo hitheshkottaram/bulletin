@@ -38,28 +38,42 @@ class NewsArticleApiResponse {
   }
 }
 
-class NewsArticleModel extends NewsArticleEntity {
-  const NewsArticleModel(
-      {SourceModel? source,
-      String? author,
-      String? title,
-      String? description,
-      String? url,
-      String? urlToImage,
-      DateTime? publishedAt,
-      String? content});
+class NewsArticleModel {
+  final SourceModel? source;
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? urlToImage;
+  final DateTime? publishedAt;
+  final String? content;
 
-  factory NewsArticleModel.fromJson(Map<String, dynamic> json) =>
-      NewsArticleModel(
-        source: SourceModel.fromJson(json["source"]),
-        author: json["author"],
-        title: json["title"],
-        description: json["description"],
-        url: json["url"],
-        urlToImage: json["urlToImage"],
-        publishedAt: DateTime.parse(json["publishedAt"]),
-        content: json["content"],
-      );
+  NewsArticleModel({
+    this.source,
+    this.author,
+    this.title,
+    this.description,
+    this.url,
+    this.urlToImage,
+    this.publishedAt,
+    this.content,
+  });
+
+  factory NewsArticleModel.fromJson(Map<String, dynamic> json) {
+    return NewsArticleModel(
+      source:
+          json["source"] != null ? SourceModel.fromJson(json["source"]) : null,
+      author: json["author"] ?? "empty",
+      title: json["title"] ?? "empty",
+      description: json["description"] ?? "empty",
+      url: json["url"] ?? "empty",
+      urlToImage: json["urlToImage"] ?? "empty",
+      publishedAt: json["publishedAt"] != null
+          ? DateTime.tryParse(json["publishedAt"])
+          : null,
+      content: json["content"] ?? "empty",
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "source": (source as SourceModel).toJson(),

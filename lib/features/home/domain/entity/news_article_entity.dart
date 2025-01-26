@@ -1,3 +1,4 @@
+import 'package:bullet_in/features/home/data/model/news_article_model.dart';
 import 'package:equatable/equatable.dart';
 
 class NewsArticleEntity extends Equatable {
@@ -45,4 +46,21 @@ class Source extends Equatable {
 
   @override
   List<Object?> get props => [id, name];
+}
+
+NewsArticleEntity mapArticleModelToEntity(NewsArticleModel model) {
+  return NewsArticleEntity(
+    source: model.source,
+    author: model.author ?? '',
+    title: model.title ?? '',
+    description: model.description ?? '',
+    url: model.url ?? '',
+    urlToImage: model.urlToImage ?? '',
+    publishedAt: model.publishedAt,
+    content: model.content ?? '',
+  );
+}
+
+List<NewsArticleEntity> convertToEntities(List<NewsArticleModel>? models) {
+  return models?.map((model) => mapArticleModelToEntity(model)).toList() ?? [];
 }

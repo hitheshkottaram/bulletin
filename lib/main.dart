@@ -1,9 +1,11 @@
 import 'package:bullet_in/config/theme/theme.dart';
 import 'package:bullet_in/config/theme/theme_util.dart';
 import 'package:bullet_in/core/constants/constants.dart';
+import 'package:bullet_in/features/home/presentation/bloc/ui/home_ui_bloc.dart';
 import 'package:bullet_in/features/home/presentation/pages/home.dart';
 import 'package:bullet_in/injection_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -38,7 +40,10 @@ class MyApp extends StatelessWidget {
         Locale(localeMalayalam), // Malayalam
       ],
       locale: const Locale(localeEnglish),
-      home: const HomePage(),
+      home: BlocProvider<HomeUIBloc>(
+        create: (context) => sl(),
+        child: const HomePage(),
+      ),
     );
   }
 }

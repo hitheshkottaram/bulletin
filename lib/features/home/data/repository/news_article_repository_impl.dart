@@ -4,10 +4,10 @@ import 'package:bullet_in/features/home/data/data_source/remote/news_api_service
 import 'package:bullet_in/features/home/data/data_source/remote/news_mock_api_service.dart';
 import 'package:bullet_in/features/home/domain/entity/news_article_entity.dart';
 import 'package:bullet_in/features/home/domain/repository/news_article_repository.dart';
-import 'package:bullet_in/core/constants/constants.dart';
 import 'package:dio/dio.dart';
 
 class NewsArticleRepositoryImpl implements NewsArticleRepository {
+  // ignore: unused_field
   final NewsApiService _newsApiService;
   final NewsMockApiService _newsMockApiService;
   NewsArticleRepositoryImpl(this._newsApiService, this._newsMockApiService);
@@ -15,16 +15,16 @@ class NewsArticleRepositoryImpl implements NewsArticleRepository {
   Future<DataState<List<NewsArticleEntity>>> getNewsArticles() async {
     try {
       final httpResponse = await _newsMockApiService.getNewsArticles();
-      if (true) {
-        _newsApiService.getNewsArticles(
-          apiKey: newsAPIKey,
-          country: newsAPICountryQuery,
-          category: newsAPICategoryQuery,
-        );
-      }
+      // if (true) {
+      //   _newsApiService.getNewsArticles(
+      //     apiKey: newsAPIKey,
+      //     country: newsAPICountryQuery,
+      //     category: newsAPICategoryQuery,
+      //   );
+      // }
       if (httpResponse.response.isSuccess &&
           (httpResponse.data.articles?.isNotEmpty ?? false)) {
-        return DataSuccess(httpResponse.data.articles!);
+        return DataSuccess(convertToEntities(httpResponse.data.articles));
       } else {
         return DataError(DioException(
             error: httpResponse.response.statusMessage,
